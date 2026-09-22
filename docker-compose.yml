@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: fastapi_api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the local code inside the container for hot reload
+      - .:/app
+    environment:
+      - ENVIRONMENT=dev
+    # Override the CMD to run in dev mode inside Docker
+    command: python start.py dev
