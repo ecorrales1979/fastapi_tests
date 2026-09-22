@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 
+from app.api import router
 
-def register_routes(app: FastAPI):
-    @app.get("/")
-    def read_root():
-        return {"Hello": "World"}
 
 def create_app():
     app = FastAPI(
@@ -12,7 +9,9 @@ def create_app():
         description="This is a sample FastAPI application",
         version="0.1.0"
     )
-    register_routes(app)
+
+    app.include_router(router)
+
     return app
 
 app = create_app()
