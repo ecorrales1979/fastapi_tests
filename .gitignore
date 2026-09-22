@@ -1,0 +1,62 @@
+# ==========================================
+# Entornos Virtuales (Virtual Environments)
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# ==========================================
+# Cache de Python y Compilados
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# Variables de Entorno y Secretos (CRÍTICO)
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.template
+
+# ==========================================
+# Pruebas y Cobertura (pytest / coverage)
+# ==========================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# ==========================================
+# Herramientas de Calidad y Tipado (Mypy, Ruff, Flake8)
+# ==========================================
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+.flake8
+
+# ==========================================
+# Configuración del Editor y Sistema
+# ==========================================
+.vscode/
+
+# macOS / Linux / Windows
+.DS_Store
+Thumbs.db
+*.tmp
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+logs/
