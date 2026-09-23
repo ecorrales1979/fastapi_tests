@@ -1,2 +1,3 @@
 from .base_logger_provider import BaseLoggerProvider as BaseLoggerProvider
 from .console_logger_provider import ConsoleLoggerProvider as ConsoleLoggerProvider
+from .file_logger_provider import FileLoggerProvider as FileLoggerProvider
