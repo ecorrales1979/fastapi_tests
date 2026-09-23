@@ -25,6 +25,9 @@ class ILogger(ABC):
 
     @abstractmethod
     def critical(
-        self, message: str, context: dict[str, Any] | None = None
+        self,
+        message: str,
+        trace: str | None = None,
+        context: dict[str, Any] | None = None,
     ) -> None:
         pass
