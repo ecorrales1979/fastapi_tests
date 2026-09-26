@@ -1,22 +1,22 @@
 import logging
-import os
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from typing import Any
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 from app.core.logger.providers import BaseLoggerProvider
+from app.utils import Helpers
 
 
 class FileLoggerProvider(BaseLoggerProvider):
 
     def __init__(self) -> None:
-        file_path = os.getenv("FILE_LOGGER_PATH", "logs/app.log")
-        max_bytes = int(os.getenv("FILE_LOGGER_MAX_BYTES", f"{5 * 1024 * 1024}"))  # 5 MB por archivo
-        backup_count = int(os.getenv("FILE_LOGGER_BACKUP_COUNT", f"{3}"))
+        file_path: str = Helpers.get_env_var("FILE_LOGGER_PATH", "logs/app.log")
+        max_bytes: int = Helpers.get_env_var(
+            "FILE_LOGGER_MAX_BYTES", 5242880, value_type=int
+        )
+        backup_count: int = Helpers.get_env_var(
+            "FILE_LOGGER_BACKUP_COUNT", 3, value_type=int
+        )
         log_file = Path(file_path)
         log_file.parent.mkdir(parents=True, exist_ok=True)
 
